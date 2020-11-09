@@ -1,0 +1,14 @@
+﻿.imgWrapper {
+    position: relative;
+    padding-bottom: 125%;
+    padding-top: 0px;
+    height: 0;
+}
+
+
+.imagem {
+    max-width: 50px;
+    max-height: 50px;
+    width: auto;
+    height: auto;
+}

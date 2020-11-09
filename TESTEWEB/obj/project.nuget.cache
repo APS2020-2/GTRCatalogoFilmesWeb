@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "JshzVJUheK7ou/heQGp/9UBd8bMjFbKRJsgW9Hy5pLikd3SwlPggZOp4pAROD9Mq/Ds35yaK1S3SU9BgtE5wKg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Arissa Miyuki\\source\\repos\\TESTEWEB\\TESTEWEB\\TESTEWEB.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Arissa Miyuki\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\Arissa Miyuki\\.nuget\\packages\\restsharp\\106.11.7\\restsharp.106.11.7.nupkg.sha512"
+  ],
+  "logs": []
+}
