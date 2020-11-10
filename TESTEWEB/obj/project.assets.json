@@ -83,9 +83,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Arissa Miyuki\\source\\repos\\TESTEWEB\\TESTEWEB\\TESTEWEB.csproj",
-      "projectName": "TESTEWEB",
-      "projectPath": "C:\\Users\\Arissa Miyuki\\source\\repos\\TESTEWEB\\TESTEWEB\\TESTEWEB.csproj",
+      "projectUniqueName": "C:\\Users\\Arissa Miyuki\\source\\repos\\TESTEWEB\\TESTEWEB\\GTRCatalogoFilmesWeb.csproj",
+      "projectName": "GTRCatalogoFilmesWeb",
+      "projectPath": "C:\\Users\\Arissa Miyuki\\source\\repos\\TESTEWEB\\TESTEWEB\\GTRCatalogoFilmesWeb.csproj",
       "packagesPath": "C:\\Users\\Arissa Miyuki\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Arissa Miyuki\\source\\repos\\TESTEWEB\\TESTEWEB\\obj\\",
       "projectStyle": "PackageReference",

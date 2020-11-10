@@ -12,7 +12,8 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TESTEWEB</a>
+
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">GTR</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -20,27 +21,225 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Filmes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Diretores</a>
                         </li>
                     </ul>
+                </div>
+                <div class="col-md-6 text-right">
+                    <button type="button" class="btn btn-outline-info" id="btnNew">Novo</button>
                 </div>
             </div>
         </nav>
     </header>
     <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+        @RenderBody()
+    </div>
+    <!-- MODAL VIEW -->
+    <div class="modal fade" id="modalViewFilm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">View Film</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="filmInfo">
+                    <h1>Teste</h1>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+        </div>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2020 - TESTEWEB - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <div class="modal fade" id="modalNewFilm" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <form id="frmFilme" method="post">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Create or Edit new film</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="txtTitle">Title</label>
+                                <input type="hidden" id="txtId" value="">
+                                <input type="text" id="txtTitle" placeholder="Film Title" class="form-control">
+
+                            </div>
+                            <div class="col-md-4">
+                                <label for="txtLanguage">Original Language</label>
+                                <input type="text" id="txtLanguage" placeholder="EN" class="form-control">
+
+                            </div>
+                            <div class="col-md-4">
+                                <label for="txtReleaseDate">Release Date of</label>
+                                <input type="text" id="txtReleaseDate" placeholder="00/00/0000" class="form-control">
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="txtGenre">Genre</label>
+                                <input type="text" id="txtGenre" placeholder="Genre" class="form-control">
+
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="txtDirector">Director</label>
+                                <input type="text" id="txtDirector" placeholder="Director" class="form-control">
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="textDescription">Description</label>
+                                <textarea type="text" id="textDescription" class="form-control" rows="8" cols="80"></textarea>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-9">
+
+                            </div>
+                            <div class="col-md-3">
+                                <label for="txtDuracao">Duração</label>
+                                <input type="number" id="txtDuracao" placeholder="Duração" class="form-control">
+                            </div>
+
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col">
+                                <div class="alert alert-info" id="dvAlert">
+                                    &nbsp;
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button id="btnSubmit" type="submit" class="btn btn-success">Save </button>
+                    </div>
+                </form>
+            </div>
         </div>
-    </footer>
+    </div>
+    <div class="modal fade" id="modalAttFilme" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <form id="frmFilmeAtt" method="post">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Create or Edit new film</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="txtTitle">Title</label>
+                                <input type="hidden" id="txtId1" value="">
+                                <input type="text" id="txtTitle1" placeholder="Film Title" class="form-control">
+
+                            </div>
+                            <div class="col-md-4">
+                                <label for="txtLanguage">Original Language</label>
+                                <input type="text" id="txtLanguage1" placeholder="EN" class="form-control">
+
+                            </div>
+                            <div class="col-md-4">
+                                <label for="txtReleaseDate">Release Date of</label>
+                                <input type="text" id="txtReleaseDate1" placeholder="00/00/0000" class="form-control">
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-4">
+                                <label for="txtGenre">Genre</label>
+                                <input type="text" id="txtGenre1" placeholder="Genre" class="form-control">
+
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="txtDirector">Director</label>
+                                <input type="text" id="txtDirector1" placeholder="Director" class="form-control">
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="textDescription">Description</label>
+                                <textarea type="text" id="textDescription1" class="form-control" rows="8" cols="80"></textarea>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-9">
+
+                            </div>
+                            <div class="col-md-3">
+                                <label for="txtDuracao">Duração</label>
+                                <input type="number" id="txtDuracao1" placeholder="Duração" class="form-control">
+                            </div>
+
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col">
+                                <div class="alert alert-info" id="dvAlert">
+                                    &nbsp;
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button id="btnSubmitAtt" type="submit" class="btn btn-success">Save </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div>
+
+        <button type="button" class="btn btn-outline-info" id="btnpaginaanterior">Página Anterior</button>
+        <button type="button" class="btn btn-outline-info" id="btnproximapagina">Próxima página </button>
+
+
+    </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/script.js" asp-append-version="true"></script>

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JshzVJUheK7ou/heQGp/9UBd8bMjFbKRJsgW9Hy5pLikd3SwlPggZOp4pAROD9Mq/Ds35yaK1S3SU9BgtE5wKg==",
+  "dgSpecHash": "U0NxQMS8eTvp1gxPx6txlpGPxx4THZXtXtkHsRxDYgMHUSkWlP4nveZxYhHtMUT5m8WI0u/5nwccQc1vGQi8AA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Arissa Miyuki\\source\\repos\\TESTEWEB\\TESTEWEB\\TESTEWEB.csproj",
+  "projectFilePath": "C:\\Users\\Arissa Miyuki\\source\\repos\\TESTEWEB\\TESTEWEB\\GTRCatalogoFilmesWeb.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Arissa Miyuki\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\Arissa Miyuki\\.nuget\\packages\\restsharp\\106.11.7\\restsharp.106.11.7.nupkg.sha512"

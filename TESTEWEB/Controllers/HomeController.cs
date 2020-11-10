@@ -16,6 +16,7 @@ namespace TESTEWEB.Controllers
 {
     public class HomeController : Controller
     {
+        public int forID;
         public ActionResult Index()
         {
             return View();
@@ -37,6 +38,50 @@ namespace TESTEWEB.Controllers
             InserirFilmes(employee);
 
             return Json(serializedProduto);
+        }
+        public JsonResult AjaxPutCall(int id,string titulo, string descricao, string idiomaOriginal, string dataLancamento, string duracao, string genero, string diretor)
+        {
+            forID = id;
+            DadosFilmes employee = new DadosFilmes
+            {
+                id = id,
+                titulo = titulo,
+                descricao = descricao,
+                idiomaOriginal = idiomaOriginal,
+                dataLancamento = dataLancamento,
+                duracao = duracao,
+                genero = new Genero { nome = genero },
+                diretor = new Diretor { nome = diretor }
+            };
+            var serializedProduto = JsonConvert.SerializeObject(employee);
+            AtualizarFilmes(employee, id);
+
+            return Json(serializedProduto);
+        }
+        private async void AtualizarFilmes(DadosFilmes dto,int forID)
+        {
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    using (var response = await client.GetAsync("http://localhost:5000/CatalogoFilmesAPI/filme/"))
+                    {
+                        if (response.IsSuccessStatusCode)
+                        {
+
+
+                            var serializedProduto = JsonConvert.SerializeObject(dto);
+                            var content = new StringContent(serializedProduto, Encoding.UTF8, "application/json");
+                            var result = await client.PutAsync("http://localhost:5000/CatalogoFilmesAPI/filme/" + forID + "", content);
+
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         private async void InserirFilmes(DadosFilmes dto)
         {
